@@ -1,0 +1,77 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 10px;
+}
+
+#messages {
+    height: 80vh;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#messages div {
+    padding: 10px;
+    width: fit-content;
+    max-width: 60%; /* Limita a largura máxima dos balões */
+    margin-top: 5px;
+    word-wrap: break-word; /* Quebra texto longo */
+}
+
+#messages div.my-message, #messages div.other-message {
+    padding: 10px;
+    width: fit-content; /* Permite que o conteúdo defina a largura até um máximo */
+    max-width: 45vw; /* Define a largura máxima como 45% da largura da viewport */
+    margin-top: 5px;
+    word-wrap: break-word; /* Garante que o texto quebre conforme necessário */
+    border-radius: 10px; /* Estilização opcional para bordas arredondadas */
+}
+
+#messages div.my-message {
+    margin-left: auto; /* Alinha à direita */
+    background-color: #afe7ff; /* Cor de fundo para mensagens enviadas */
+    border-radius: 10px 10px 0 10px; /* Bordas arredondadas específicas */
+}
+
+#messages div.other-message {
+    margin-right: auto; /* Alinha à esquerda */
+    background-color: #a2ffc4; /* Cor de fundo para mensagens recebidas */
+    border-radius: 10px 10px 10px 0; /* Bordas arredondadas específicas */
+}
+
+#messages div.toggle-my-message {
+    margin-left: auto; /* Alinha à direita */
+}
+
+#messages div.toggle-other-message {
+    margin-right: auto; /* Alinha à esquerda */
+}
+
+
+input {
+    padding: 10px;
+    margin-top: 5px;
+    width: 50%;
+}
+
+button {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+button.toggle-visibility {
+    
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff; 
+    font-size: 25px; 
+}
+
+button.toggle-visibility:focus {
+    outline: none;
+}

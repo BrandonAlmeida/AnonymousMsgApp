@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div id="user-count">Usuários conectados: 0</div>
+    <div id="messages"></div>
+    <div>
+        <input type="text" id="user-message" placeholder="Escreva uma mensagem">
+        <button onclick="sendMessage()">Enviar Mensagem</button>
+        <button onclick="window.location.href='/logout'">Logout</button>
+    </div>
+    <div>
+        <input type="file" id="file-input"> <!-- Campo para escolher o arquivo -->
+        <button onclick="sendAttachment()">Enviar Anexo</button>
+    </div>
+<!--
+    <script type="text/javascript">
+        var socket = io();
+        var currentUser = "{{ session['username'] }}";
+
+        socket.on('update user count', function(data) {
+            document.getElementById('user-count').textContent = 'Usuários conectados: ' + data.num_users;
+        });
+
+        socket.on('message', function(data) {
+            var msgData = JSON.parse(data);
+            var messageElement = document.createElement('div');
+            messageElement.textContent = msgData.user + ': ' + msgData.message;
+            messageElement.className = msgData.user === currentUser ? 'my-message' : 'other-message';
+            document.getElementById('messages').appendChild(messageElement);
+            document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
+        });
+
+        function sendMessage() {
+            var input = document.getElementById('user-message');
+            socket.send(JSON.stringify({ user: currentUser, message: input.value }));
+            input.value = '';
+        }
+    </script> -->
+</body>
+</html>
